@@ -1994,7 +1994,7 @@ export class VoidAuth implements Authentication {
 export enum ConversationsApiApiKeys {
 }
 
-export class ConversationsApi {
+export class Conversations {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
@@ -2041,7 +2041,7 @@ export class ConversationsApi {
      * @param conversationId Conversation ID
      * @param watermark (Optional) only returns activities newer than this watermark
      */
-    public conversationsGetActivities (conversationId: string, watermark?: string) : Promise<{ response: http.ClientResponse; body: ActivitySet;  }> {
+    public getActivities (conversationId: string, watermark?: string) : Promise<{ response: http.ClientResponse; body: ActivitySet;  }> {
         const localVarPath = this.basePath + '/v3/directline/conversations/{conversationId}/activities'
             .replace('{' + 'conversationId' + '}', encodeURIComponent(String(conversationId)));
         let localVarQueryParameters: any = {};
@@ -2099,7 +2099,7 @@ export class ConversationsApi {
      * @param conversationId Conversation ID
      * @param activity Activity to send
      */
-    public conversationsPostActivity (conversationId: string, activity: Activity) : Promise<{ response: http.ClientResponse; body: ResourceResponse;  }> {
+    public postActivity (conversationId: string, activity: Activity) : Promise<{ response: http.ClientResponse; body: ResourceResponse;  }> {
         const localVarPath = this.basePath + '/v3/directline/conversations/{conversationId}/activities'
             .replace('{' + 'conversationId' + '}', encodeURIComponent(String(conversationId)));
         let localVarQueryParameters: any = {};
@@ -2159,7 +2159,7 @@ export class ConversationsApi {
      * @param conversationId 
      * @param watermark 
      */
-    public conversationsReconnectToConversation (conversationId: string, watermark?: string) : Promise<{ response: http.ClientResponse; body: Conversation;  }> {
+    public reconnectToConversation (conversationId: string, watermark?: string) : Promise<{ response: http.ClientResponse; body: Conversation;  }> {
         const localVarPath = this.basePath + '/v3/directline/conversations/{conversationId}'
             .replace('{' + 'conversationId' + '}', encodeURIComponent(String(conversationId)));
         let localVarQueryParameters: any = {};
@@ -2215,7 +2215,7 @@ export class ConversationsApi {
      * 
      * @summary Start a new conversation
      */
-    public conversationsStartConversation () : Promise<{ response: http.ClientResponse; body: Conversation;  }> {
+    public startConversation () : Promise<{ response: http.ClientResponse; body: Conversation;  }> {
         const localVarPath = this.basePath + '/v3/directline/conversations';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2264,7 +2264,7 @@ export class ConversationsApi {
      * @param file 
      * @param userId 
      */
-    public conversationsUpload (conversationId: string, file: Buffer, userId?: string) : Promise<{ response: http.ClientResponse; body: ResourceResponse;  }> {
+    public upload (conversationId: string, file: Buffer, userId?: string) : Promise<{ response: http.ClientResponse; body: ResourceResponse;  }> {
         const localVarPath = this.basePath + '/v3/directline/conversations/{conversationId}/upload'
             .replace('{' + 'conversationId' + '}', encodeURIComponent(String(conversationId)));
         let localVarQueryParameters: any = {};
@@ -2330,7 +2330,7 @@ export class ConversationsApi {
 export enum TokensApiApiKeys {
 }
 
-export class TokensApi {
+export class Tokens {
     protected _basePath = defaultBasePath;
     protected defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
@@ -2376,7 +2376,7 @@ export class TokensApi {
      * @summary Generate a token for a new conversation
      * @param tokenParameters 
      */
-    public tokensGenerateTokenForNewConversation (tokenParameters?: TokenParameters) : Promise<{ response: http.ClientResponse; body: Conversation;  }> {
+    public generateTokenForNewConversation (tokenParameters?: TokenParameters) : Promise<{ response: http.ClientResponse; body: Conversation;  }> {
         const localVarPath = this.basePath + '/v3/directline/tokens/generate';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -2423,7 +2423,7 @@ export class TokensApi {
      * 
      * @summary Refresh a token
      */
-    public tokensRefreshToken () : Promise<{ response: http.ClientResponse; body: Conversation;  }> {
+    public refreshToken () : Promise<{ response: http.ClientResponse; body: Conversation;  }> {
         const localVarPath = this.basePath + '/v3/directline/tokens/refresh';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
